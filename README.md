@@ -17,17 +17,55 @@ Mobile Lern-App für die Theorie der **THW-Grundausbildung**. Du lernst wie für
 - **Backup**: Fortschritt exportieren und wieder einspielen.
 - Dunkelmodus, iPhone-Notch und Home-Indicator werden berücksichtigt.
 
-## Aufs iPhone bringen
+## Installation – Schritt für Schritt
 
-Die App ist eine **Progressive Web App (PWA)**. Sie muss einmal unter einer HTTPS-Adresse liegen, danach installierst du sie wie eine App:
+Die App ist eine **Web-App (PWA)**. Sie wird einmal über GitHub Pages ins Netz gestellt und dann auf dem iPhone wie eine App auf den Home-Bildschirm gelegt. Ein App Store oder Entwicklerkonto ist nicht nötig. Für die Installation brauchst du kurz Internet, danach läuft die App offline.
 
-1. Im Repo unter **Settings → Pages** als Source „Deploy from a branch“, Branch `main` und Ordner `/ (root)` wählen.
-   GitHub Pages ist im Free-Plan nur für **öffentliche** Repos verfügbar, bei privaten Repos braucht es GitHub Pro.
-2. Nach ca. 1 Minute ist die App erreichbar unter `https://<dein-github-name>.github.io/thw-theorie-trainer/`.
-3. Die Adresse auf dem iPhone in **Safari** öffnen, auf **Teilen** (□↑) tippen und **„Zum Home-Bildschirm“** wählen.
-4. Fertig: Die App startet im Vollbild vom Home-Bildschirm und funktioniert ab dann auch **offline**.
+### Teil A – Einmalig auf GitHub (am besten am PC)
 
-Der Lernfortschritt bleibt **nur auf deinem Gerät** gespeichert. Es gibt keinen Server und kein Konto.
+1. **Repo öffentlich machen**
+   `github.com/MrOctoGram/thw-theorie-trainer` → **Settings** → **General** → ganz unten bei *Danger Zone* auf **Change visibility** → **Make public** und bestätigen.
+   GitHub Pages ist im kostenlosen Plan nur für öffentliche Repos verfügbar. Im Repo liegen keine Prüfungsfragen, nur der App-Code.
+2. **GitHub Pages einschalten**
+   **Settings** → links **Pages** → bei *Build and deployment*:
+   - *Source*: **Deploy from a branch**
+   - *Branch*: **main** und Ordner **/ (root)** → **Save**
+3. **1–2 Minuten warten** und die Pages-Seite neu laden. Oben steht dann *„Your site is live at …“*.
+   Die Adresse lautet: **https://mroctogram.github.io/thw-theorie-trainer/**
+   Wenn du die Adresse am PC öffnest, sollte der Willkommensbildschirm der App erscheinen.
+
+### Teil B – App aufs iPhone
+
+1. Die Adresse **https://mroctogram.github.io/thw-theorie-trainer/** in **Safari** öffnen.
+2. Auf das **Teilen-Symbol** tippen (□ mit Pfeil nach oben).
+   Bei neueren iOS-Versionen versteckt es sich im **„•••“-Menü** neben der Adressleiste.
+3. Nach unten scrollen und **„Zum Home-Bildschirm“** wählen.
+   Falls ein Schalter **„Als Web-App öffnen“** erscheint, eingeschaltet lassen.
+4. Oben rechts auf **„Hinzufügen“** tippen. Auf dem Home-Bildschirm erscheint das Symbol **„THW Theorie“**.
+5. ⚠️ **Ab jetzt die App immer über dieses Symbol öffnen, nicht über Safari.** Die Home-Bildschirm-App und der Safari-Tab haben getrennte Speicher. Fragen und Lernstand liegen nur dort, wo du sie importiert hast.
+
+### Teil C – Fragenkatalog laden (einmalig)
+
+1. Die Katalogdatei (z. B. `THW-Fragenkatalog-2024-v3.5.json`) aufs iPhone holen, etwa aus dem Chat, per AirDrop oder per Mail. Dann **„In Dateien sichern“** wählen.
+2. Die **App vom Home-Bildschirm** öffnen → unten **„Mehr“** → Abschnitt **„Fragenkatalog“** → **„Datei wählen …“** → die Datei in *Dateien* antippen.
+3. Die Meldung *„Datei geladen“* erscheint. Jetzt auf **„Katalog ersetzen“** tippen.
+4. Fertig: Unter **„Kapitel“** stehen jetzt die Lernabschnitte, unter **„Start“** kannst du loslernen.
+
+### Gut zu wissen
+
+- **Updates der App** kommen automatisch: Die App einfach einmal mit Internet öffnen und danach neu starten.
+- **Neuer Katalog** (z. B. nächste Version): wie in Teil C importieren und **„Katalog ersetzen“** tippen. Bei unveränderten Fragen bleibt der Lernstand erhalten.
+- **Backup**: Unter **Mehr → Sicherung → „Fortschritt exportieren“** sicherst du alles in einer Datei, z. B. in iCloud Drive. Sinnvoll vor einem Handywechsel. In den iPhone-Einstellungen unter *Safari → Verlauf und Websitedaten löschen* können auch die App-Daten verloren gehen.
+- **Zweites Gerät**: Unter **Mehr → „Katalog exportieren“** bzw. **„Fortschritt exportieren“** speichern und auf dem anderen Gerät importieren.
+
+### Probleme?
+
+| Problem | Lösung |
+|---|---|
+| Unter der Adresse erscheint „404“ | Pages ist noch nicht fertig. 2 Minuten warten und prüfen, ob in Teil A Branch `main` / `(root)` gespeichert ist. |
+| „Zum Home-Bildschirm“ fehlt | Die Seite wirklich in **Safari** öffnen, nicht in einer In-App-Vorschau (z. B. aus Mail oder WhatsApp). In der Teilen-Liste ganz nach unten scrollen. |
+| App ist nach dem Öffnen leer | Wahrscheinlich wurde der Katalog in Safari statt in der Home-Bildschirm-App importiert. Teil C in der App wiederholen. |
+| Datei lässt sich nicht auswählen | Die Datei muss in der *Dateien*-App liegen (*Auf meinem iPhone* oder *iCloud Drive*). |
 
 ## Fragenkatalog importieren
 
