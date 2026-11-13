@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <title>THW Theorie</title>
+  <meta name="description" content="THW-Grundausbildung Theorie lernen – offline, mit Karteikasten und Prüfungssimulation">
+  <meta name="theme-color" content="#003399">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="THW Theorie">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header id="topbar">
+    <button id="backBtn" class="icon-btn" aria-label="Zurück" hidden>‹</button>
+    <h1 id="title">THW Theorie</h1>
+    <div id="streakChip" class="chip" title="Lernserie">🔥 0</div>
+  </header>
+  <main id="view"></main>
+  <nav id="tabbar">
+    <button data-tab="home" class="active"><span>🏠</span>Start</button>
+    <button data-tab="chapters"><span>📚</span>Kapitel</button>
+    <button data-tab="exam"><span>📝</span>Prüfung</button>
+    <button data-tab="stats"><span>🏅</span>Erfolge</button>
+    <button data-tab="more"><span>⚙️</span>Mehr</button>
+  </nav>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <canvas id="confetti"></canvas>
+  <script src="js/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
