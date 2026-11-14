@@ -1,5 +1,5 @@
 // Service Worker: macht die App offline-fähig. Bei Änderungen VERSION erhöhen.
-const VERSION = "thw-theorie-v2";
+const VERSION = "thw-theorie-v3";
 const ASSETS = ["./", "index.html", "css/styles.css", "js/app.js", "js/questions.js", "manifest.webmanifest",
   "icons/icon-192.png", "icons/icon-512.png", "icons/apple-touch-icon.png"];
 self.addEventListener("install", e => { e.waitUntil(caches.open(VERSION).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });

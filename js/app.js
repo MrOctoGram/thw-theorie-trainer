@@ -535,7 +535,7 @@
   function renderMore() {
     setTitle("Mehr");
     const st = S.settings;
-    const standalone = window.navigator.standalone || matchMedia("(display-mode: standalone)").matches;
+    const standalone = window.navigator.standalone || window.Android || matchMedia("(display-mode: standalone)").matches;
     view.innerHTML = `
       ${standalone ? "" : `<div class="card"><h2>📲 Als App installieren</h2><div class="muted">In Safari unten auf <b>Teilen</b> (□↑) tippen → <b>„Zum Home-Bildschirm“</b>. Danach startet die App im Vollbild und funktioniert offline.</div></div>`}
       <div class="card"><h2>Einstellungen</h2>
@@ -635,6 +635,7 @@
     return { chapters, questions: qs.map(normQ).filter(Boolean) };
   }
   async function shareJson(obj, name) {
+    if (window.Android && window.Android.saveFile) { window.Android.saveFile(name, JSON.stringify(obj, null, 1)); return; } // Android-App
     const blob = new Blob([JSON.stringify(obj, null, 1)], { type: "application/json" });
     const file = new File([blob], name, { type: "application/json" });
     if (navigator.canShare && navigator.canShare({ files: [file] })) { try { await navigator.share({ files: [file], title: name }); } catch (e) { /* abgebrochen */ } }
@@ -645,7 +646,15 @@
   document.querySelectorAll("#tabbar button").forEach(b => b.onclick = () => go(b.dataset.tab));
   rebuildChapters(); updateChrome(); applyTips();
   go("home");
-  if ("serviceWorker" in navigator && location.protocol !== "file:") {
+  // Android-Zurück-Taste: true = in der App zurückgegangen, false = App darf schließen
+  window.__thwBack = () => {
+    const b = $("#backBtn");
+    if (!b.hidden && b.onclick) { b.onclick(); return true; }
+    const active = document.querySelector("#tabbar button.active");
+    if (!document.body.classList.contains("in-session") && active && active.dataset.tab !== "home") { go("home"); return true; }
+    return false;
+  };
+  if ("serviceWorker" in navigator && location.protocol !== "file:" && !window.Android) {
     navigator.serviceWorker.register("sw.js").catch(() => {});
   }
   window.__thw = { get state() { return S; }, parseCatalog }; // für Tests/Debug
